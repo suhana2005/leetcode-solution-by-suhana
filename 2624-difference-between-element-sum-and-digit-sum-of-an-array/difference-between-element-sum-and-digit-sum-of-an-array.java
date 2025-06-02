@@ -3,9 +3,10 @@ class Solution {
         int elementsum = 0;
         int digitsum = 0;
 
-        for (int i = 0; i < nums.length; i++){
-        elementsum = elementsum + nums[i];
-
+        for(int i = 0; i < nums.length; i++){
+            elementsum = elementsum + nums[i];
+            
+        
         int current = nums[i];
         while(current > 0)
         {
@@ -15,5 +16,6 @@ class Solution {
 
         }
         return Math.abs(elementsum - digitsum);
+
     }
 }
