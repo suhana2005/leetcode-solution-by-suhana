@@ -1,18 +1,19 @@
-public class Solution {
+class Solution {
     public int minCostToMoveChips(int[] position) {
-        int evenCount = 0;
-        int oddCount = 0;
+        
+        int oddcount = 0;
+        int evencount = 0;
 
-        // Count chips at even and odd positions
-        for (int pos : position) {
-            if (pos % 2 == 0) {
-                evenCount++;
-            } else {
-                oddCount++;
+        for (int i = 0; i < position.length; i++){
+            if (position[i] % 2 == 0)
+            {
+                evencount++;
+            }
+            else
+            {
+                oddcount++;
             }
         }
-
-        // Return the minimum of the two counts
-        return Math.min(evenCount, oddCount);
+        return Math.min (oddcount , evencount);
     }
 }
