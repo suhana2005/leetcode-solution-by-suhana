@@ -1,20 +1,19 @@
+import java.util.HashMap;
+import java.util.Map;
+
 class Solution {
-    int mod = 1000000007;
-    public int countPairs(int[] arr) {
-        Map<Integer, Integer> map = new HashMap<>();
-        int n = arr.length;
-        long res = 0;
-        for (int num : arr) {
-            int power = 1;
-            for (int i = 0; i < 22; i++) {
-                if (map.containsKey(power - num)) {
-                    res += map.get(power - num);
-                    res %= mod;
-                }
-                power *= 2;
+    public int countPairs(int[] deliciousness) {
+        final int MOD = 1_000_000_007;
+        Map<Integer, Integer> countMap = new HashMap<>();
+        int result = 0;
+        
+        for (int d : deliciousness) {
+            for (int power = 1; power <= (1 << 21); power <<= 1) {
+                result = (result + countMap.getOrDefault(power - d, 0)) % MOD;
             }
-            map.put(num, map.getOrDefault(num, 0) + 1);
+            countMap.put(d, countMap.getOrDefault(d, 0) + 1);
         }
-        return (int) res;
+        
+        return result;
     }
 }
