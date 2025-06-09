@@ -1,6 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
-
 class Solution {
     public int countPairs(int[] deliciousness) {
         final int MOD = 1_000_000_007;
